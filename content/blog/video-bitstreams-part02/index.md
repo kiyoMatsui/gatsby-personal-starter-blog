@@ -3,27 +3,28 @@ title: Video Bitstreams Part02
 date: "2022-08-25T21:00:00.284Z"
 ---
 
-So now we have our fmp4 (see Part01), lets actually look inside the file. The tool I like to use here is MP4Box.js, lets load in the fmp4 and see what is inside.
+So now we have our fmp4 (see Part01), lets actually look inside the file. The tool I like to use here is [MP4Box.js](https://github.com/gpac/mp4box.js/), lets load in the fmp4 and see what is inside (click to enlarge image).
 ![mp4box](./mp4box.png)
 
-What we see in the above image is the tree structure of MP4 Boxes. These Boxes been defined in a number of ISO standards and help organise the fmp4 file by holding relevant info. Most of the boxes hold stream information, the mdat box holds the actual bitstream data so will be much larger.
+What we see in the above image is the tree structure of MP4 Boxes. These Boxes are defined in a number of ISO standards and help organise the fmp4 file into relevant info. Most of the boxes hold stream information, the mdat box holds the actual bitstream data so will be much larger.
 
-It is helpful to view the file in a hex editor, this will show how the boxes fit together in a file and shows visually what the file actually looks like. Here we used hexl-mode in emacs.
+It is helpful to view the file in a hex editor, this will show how the boxes fit together in a file and shows visually what the file actually looks like. Here we have used hexl-mode in emacs.
 ![emacs](./emacs.png)
 
-The right side of the hex view translates the box name with 4 bytes. We see ftyp box at the top, a moov box, then all the sub boxes like trak, tkhd and further down the tree avc1. tkhd includes the track_id which for this stream is "1". The avc1 box obviously tells us we have a AVC (or h.264) stream.
+The right side of the hex view translates the box name with 4 bytes. We see ftyp box at the top, a moov box, then all the sub boxes like trak, tkhd and further down the tree, avc1. tkhd includes the track_id which for this stream is "1". The avc1 box obviously tells us we have a AVC (or h.264) video stream.
 ![avc1](./avc1.png)
 
 Next lets look at the first mdat box, MP4Box.js will tell me it has type: mdat; size: 127403; and start: 2549.
-Thats as far as we go with MP4Box.js, we will need to go into more detail with ffmpeg.
-The ffmpeg demuxers organise video data into "packets" usually this is one frame but the documentation suggests this may not always be true.
-Using the following ffprobe command we can print out the packets, a option is set to include their data.
+Thats as far as we go with MP4Box.js on boxes, we will need to go into more detail with ffmpeg.
+
+The ffmpeg demuxers organise video data into "packets" (or pkts) usually this is one frame but the documentation suggests this may not always be true.
+Using the following ffprobe command we can print out the packets, a option is set to include the packet data.
 
 ```
 ffprobe -show_packets -show_data -select_streams v ./sintelTrailer_fmp4_avc.mp4 > showPacketsShowData.txt
 ```
 
-Comparing the first mdat box in the raw view we can see the first PACKET has the same data as the start of our first mdat box.
+Comparing the first mdat box in the raw view we can see the first packet has the same data as the start of our first mdat box.
 
 ![ffmpegVsRaw](./ffmpegVsRaw.png)
 
@@ -33,10 +34,12 @@ The data from the next two packets continue to show the data from our first mdat
 
 Its important at this point to state that its clear this bitstream is using the avcc bitstream format.
 Most AVC streams are either avcc or Annex-b.
-Annex-b deliminates NAL units with a start code, for example, 00000001. This is often easily spotted in the hex editor.
+
+Annex-b deliminates [NAL units](https://en.wikipedia.org/wiki/Network_Abstraction_Layer) with a start code, for example, 00000001. This is often easily spotted in the hex editor.
+
 AVCC deliminates NAL units with 4bytes indicating the NAL unit size. In the image above the the first 4 bytes of the pkt in hex will translate to the packet size - 4 (the size of the deliminator).
 
-e.g.  in the below snippet of the second packet  `0000 006d = 109` this is the same value as `size=113` subtracted by 4.
+For example, in the below snippet of the second packet  `0000 006d = 109` this is the same value as `size=113` subtracted by 4.
 
 ```
 size=113
@@ -47,7 +50,7 @@ data=
 ```
 
 
-5000 lines of the output have been printed below, analysing this has been interesting.
+5000 lines of the output have been printed below, analysing this has been interesting so I will leave it here and end Part02.
 
 ```
 [PACKET]
