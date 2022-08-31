@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Generated with https://github.com/google/shaka-packager version v2.5.1-9f11077-release-->
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:dash:schema:mpd:2011 DASH-MPD.xsd" profiles="urn:mpeg:dash:profile:isoff-live:2011" minBufferTime="PT2S" type="static" mediaPresentationDuration="PT52.20833206176758S">
+  <Period id="0">
+    <AdaptationSet id="0" contentType="video" width="1920" height="1080" frameRate="12288/512" segmentAlignment="true" par="16:9">
+      <Representation id="0" bandwidth="4191236" codecs="avc1.4d4028" mimeType="video/mp4" sar="1:1">
+        <SegmentTemplate timescale="12288" initialization="videoClear/init.mp4" media="videoClear/vid$Number$.m4s" startNumber="1">
+          <SegmentTimeline>
+            <S t="0" d="24576" r="25"/>
+            <S t="638976" d="2560"/>
+          </SegmentTimeline>
+        </SegmentTemplate>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet id="1" contentType="audio" segmentAlignment="true">
+      <Representation id="1" bandwidth="133903" codecs="mp4a.40.2" mimeType="audio/mp4" audioSamplingRate="48000">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2"/>
+        <SegmentTemplate timescale="48000" initialization="audioClear/init.mp4" media="audioClear/aud$Number$.m4s" startNumber="1">
+          <SegmentTimeline>
+            <S t="0" d="96160"/>
+            <S t="96160" d="96256" r="2"/>
+            <S t="384928" d="95232"/>
+            <S t="480160" d="96256" r="2"/>
+            <S t="768928" d="95232"/>
+            <S t="864160" d="96256" r="2"/>
+            <S t="1152928" d="95232"/>
+            <S t="1248160" d="96256" r="2"/>
+            <S t="1536928" d="95232"/>
+            <S t="1632160" d="96256" r="2"/>
+            <S t="1920928" d="95232"/>
+            <S t="2016160" d="96256" r="2"/>
+            <S t="2304928" d="95232"/>
+            <S t="2400160" d="96256"/>
+            <S t="2496416" d="3584"/>
+          </SegmentTimeline>
+        </SegmentTemplate>
+      </Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>
+

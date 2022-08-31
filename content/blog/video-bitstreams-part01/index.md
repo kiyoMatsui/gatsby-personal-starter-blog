@@ -1,6 +1,6 @@
 ---
 title: Video Bitstreams Part01
-date: "2022-08-09T21:00:00.284Z"
+date: "2022-08-26T21:00:00.284Z"
 ---
 
 Recently I have been reminded about the phrase “A little knowledge is a dangerous thing”. It is probably obvious to many how this applies to working with technology, especially as often we only have an abstract understanding of many of the topics we need to familiarise ourselves with. In practice we end up in a “Danger Zone” of not knowing we should better understand the key pieces of technology we are responsible for. Often, we only find out later and have to reactively fix something. With experience you can start to make best guesses on what areas need to be explored in the hope that you can do better. But Dunning Kruger tells us we will often not know that we should have known something until it’s too late.

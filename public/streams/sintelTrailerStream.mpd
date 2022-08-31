@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Generated with https://github.com/google/shaka-packager version v2.5.1-9f11077-release-->
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:dash:schema:mpd:2011 DASH-MPD.xsd" xmlns:cenc="urn:mpeg:cenc:2013" profiles="urn:mpeg:dash:profile:isoff-live:2011" minBufferTime="PT2S" type="static" mediaPresentationDuration="PT52.20833206176758S">
+  <Period id="0">
+    <AdaptationSet id="0" contentType="video" width="1920" height="1080" frameRate="12288/512" segmentAlignment="true" par="16:9">
+      <ContentProtection value="cenc" schemeIdUri="urn:mpeg:dash:mp4protection:2011" cenc:default_KID="6d76f25c-b17f-5e16-b8ea-ef6bbf582d8e"/>
+      <ContentProtection schemeIdUri="urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed">
+        <cenc:pssh>AAAAN3Bzc2gAAAAA7e+LqXnWSs6jyCfc1R0h7QAAABciD3Rlc3QgY29udGVudCBpZEjj3JWbBg==</cenc:pssh>
+      </ContentProtection>
+      <ContentProtection schemeIdUri="urn:uuid:1077efec-c0b2-4d02-ace3-3c1e52e2fb4b">
+        <cenc:pssh>AAAAdHBzc2gBAAAAEHfv7MCyTQKs4zweUuL7SwAAAAWruicei89VK70uhqQ0qaXZbXbyXLF/Xha46u9rv1gtjmR4YzefQVQQg3fnTG7A47j9zD1hbtxc6pslWFgdnNOP88XgNh5mVLKPgEnHeLI5RgAAAAA=</cenc:pssh>
+      </ContentProtection>
+      <Representation id="0" bandwidth="4194520" codecs="avc1.4d4028" mimeType="video/mp4" sar="1:1">
+        <SegmentTemplate timescale="12288" initialization="video/init.mp4" media="video/vid$Number$.m4s" startNumber="1">
+          <SegmentTimeline>
+            <S t="0" d="24576" r="25"/>
+            <S t="638976" d="2560"/>
+          </SegmentTimeline>
+        </SegmentTemplate>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet id="1" contentType="audio" segmentAlignment="true">
+      <Representation id="1" bandwidth="133903" codecs="mp4a.40.2" mimeType="audio/mp4" audioSamplingRate="48000">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2"/>
+        <SegmentTemplate timescale="48000" initialization="audio/init.mp4" media="audio/aud$Number$.m4s" startNumber="1">
+          <SegmentTimeline>
+            <S t="0" d="96160"/>
+            <S t="96160" d="96256" r="2"/>
+            <S t="384928" d="95232"/>
+            <S t="480160" d="96256" r="2"/>
+            <S t="768928" d="95232"/>
+            <S t="864160" d="96256" r="2"/>
+            <S t="1152928" d="95232"/>
+            <S t="1248160" d="96256" r="2"/>
+            <S t="1536928" d="95232"/>
+            <S t="1632160" d="96256" r="2"/>
+            <S t="1920928" d="95232"/>
+            <S t="2016160" d="96256" r="2"/>
+            <S t="2304928" d="95232"/>
+            <S t="2400160" d="96256"/>
+            <S t="2496416" d="3584"/>
+          </SegmentTimeline>
+        </SegmentTemplate>
+      </Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>

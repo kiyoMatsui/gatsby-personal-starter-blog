@@ -1,6 +1,6 @@
 ---
 title: Video Bitstreams Part02
-date: "2022-08-25T21:00:00.284Z"
+date: "2022-08-27T21:00:00.284Z"
 ---
 
 So now we have our fmp4 (see Part01), lets actually look inside the file. The tool I like to use here is [MP4Box.js](https://github.com/gpac/mp4box.js/), lets load in the fmp4 and see what is inside (click to enlarge image).
