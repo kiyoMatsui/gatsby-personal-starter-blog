@@ -1,6 +1,6 @@
 ---
 title: Video Bitstreams Part03
-date: "2022-08-29T21:00:00.284Z"
+date: "2022-08-29T23:00:00.284Z"
 ---
 
 In Part02 we managed to look at, and break apart the video bitstream into ffmpeg [Packets](https://ffmpeg.org/doxygen/4.0/structAVPacket.html).
